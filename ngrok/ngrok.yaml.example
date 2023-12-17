@@ -1,0 +1,11 @@
+version: "2"
+authtoken: 
+region: 
+log_level: 
+tunnels:
+  tunnel-one:
+    proto: http
+    addr: 80
+  tunnel-two:
+    proto: ssh
+    addr: 22

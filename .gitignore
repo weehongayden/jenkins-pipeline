@@ -1,0 +1,5 @@
+# Ignore .env file to avoid committing sensitive information
+.env
+
+# Ignore Ngrok config file to avoid committing sensitive information
+**/ngrok.yaml

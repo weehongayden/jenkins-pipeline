@@ -3,3 +3,6 @@
 
 # Ignore Ngrok config file to avoid committing sensitive information
 **/ngrok.yaml
+
+# Ignore everything inside vault/ssl directory
+**/vault/ssl/*

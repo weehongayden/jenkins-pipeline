@@ -14,3 +14,30 @@ services:
       - --config
       - /etc/ngrok.yaml
     restart: unless-stopped
+    networks:
+      - devops
+
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_ADDR: ${VAULT_ADDR}
+      VAULT_API_ADDR: ${VAULT_ADDR}
+      VAULT_CACERT: /vault/config/ssl/vault.crt
+    volumes:
+      - ./vault:/vault/file
+      - ./vault:/vault/config
+      - ./vault/script:/home/vault
+    cap_add:
+      - IPC_LOCK
+    entrypoint: vault server -config=/vault/config/config.hcl
+    healthcheck:
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - devops
+
+networks:
+  devops:

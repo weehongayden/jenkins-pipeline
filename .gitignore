@@ -6,7 +6,12 @@
 
 # Ignore everything inside vault/ssl directory
 **/vault/ssl/*
+**/vault/script/*
+!**/vault/script/.env.example
+!**/vault/script/generate_token.sh
 
 # Ignore everything inside jenkins/jenkins directories
 **/jenkins/*
 **/jenkins/jenkins_home/*
+
+**/db/*

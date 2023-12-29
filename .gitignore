@@ -6,3 +6,7 @@
 
 # Ignore everything inside vault/ssl directory
 **/vault/ssl/*
+
+# Ignore everything inside jenkins/jenkins directories
+**/jenkins/*
+**/jenkins/jenkins_home/*

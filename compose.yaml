@@ -29,12 +29,26 @@ services:
     volumes:
       - ./vault:/vault/file
       - ./vault:/vault/config
-      - ./vault/script:/home/vault
+      - ./vault/script:/home/vault/
     cap_add:
       - IPC_LOCK
     entrypoint: vault server -config=/vault/config/config.hcl
     healthcheck:
       retries: 5
+    restart: unless-stopped
+    networks:
+      - devops
+
+  jenkins:
+    image: jenkins/jenkins:latest
+    container_name: jenkins
+    privileged: true
+    user: root
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - ./jenkins/jenkins_home:/var/jenkins_home
     restart: unless-stopped
     networks:
       - devops

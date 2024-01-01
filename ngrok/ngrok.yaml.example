@@ -1,11 +1,19 @@
-version: "2"
-authtoken: 
-region: 
-log_level: 
+version: 2
+authtoken: 2762seBEECApMPUQZLnJdGfeI0T_5YcvZFBbWSdiovo8vV2pe
+region: ap
+log_level: debug
 tunnels:
-  tunnel-one:
+  jenkins:
     proto: http
-    addr: 80
-  tunnel-two:
-    proto: ssh
-    addr: 22
+    addr: jenkins:8080
+    domain: jenkins.weehong.dev
+  vault:
+    proto: http
+    schemes: 
+      - https
+    addr: https://vault:8200
+    domain: vault.weehong.dev
+  sonar:
+    proto: http
+    addr: sonar:9000
+    domain: sonar.weehong.dev
